@@ -30,7 +30,7 @@ jobs:
         run: mnv verify sonar:sonar -Dsonar.projectKey=TharinduNilan_eei-6369-lab-test-student-management || true
 
       - name: Build Container
-        run: docker build -t eei-6369-lab-test-student-management:${{github.sha}} .
+        run: docker build -t eei-6369-lab-test-student-management:${{ github.sha }} .
 
       - name: Aqua Security Trivy Scan
         uses: aquasecurity/trivy-action@v0.35.0
@@ -42,10 +42,6 @@ jobs:
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: {{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: {{secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: {{ vars.AWS_REGION }}
 
       - name: Login to Amazon ECR
         id: login-ecr
