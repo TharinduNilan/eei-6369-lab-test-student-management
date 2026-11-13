@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: student-management
+
+  datasource:
+    # url: jdbc:postgresql://localhost:5432/student_management
+    url: jdbc:postgresql://localhost:5432/eei6369_lab_test_db
+    username: postgres
+    # password: student123
+    password: EEI6369LabTest2026!
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    health:
+      show-details: always
